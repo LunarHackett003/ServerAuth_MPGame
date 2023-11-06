@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5087124893793113542}
   - component: {fileID: 5607368275581990381}
   - component: {fileID: 4918540450165724740}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mag_bullet.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453332254418236772}
   - component: {fileID: 8453034880882269880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScarL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8188305453681814878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RearSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7215483358617314840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagRelease_Paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6277154749287938331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChargingHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4123466832897287736}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stock_Hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 8750516889232767533}
   - component: {fileID: 716300314134339370}
   - component: {fileID: 828634361399556322}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mag_bullet.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9139974857048318454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FrontSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913565940020776898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stock_Extension
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5663545560829039498}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2598821074667558150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagReleaseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 7920189260022721136}
   - component: {fileID: 8477488741331517365}
   - component: {fileID: 3668836330668106073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 556Mag_30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3994580040712643248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3012693560480776579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BoltRelease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,8 +677,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5510554815871287787}
-  - component: {fileID: 5493600488894861077}
-  m_Layer: 0
+  - component: {fileID: -5005620073130001081}
+  m_Layer: 7
   m_Name: Scar-L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,16 +692,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8232101892719290712}
-  m_LocalRotation: {x: 0.013238817, y: -0.6962658, z: -0.71573585, w: 0.05254376}
-  m_LocalPosition: {x: -1.5746143, y: 1.474968, z: -2.7205029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 421879509170246774}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -84.439, y: -71.918, z: -104.893}
---- !u!114 &5493600488894861077
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5005620073130001081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -710,10 +710,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8232101892719290712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5276c76558360141b1326f525d7bddd, type: 3}
+  m_Script: {fileID: 11500000, guid: a557c839d767db046ae3e7ca53c3e9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magazine: {fileID: 3994580040712643248}
+  magazine: {fileID: 0}
+  animSet: {fileID: 11400000, guid: 4b4416d1835b01542a2993294864aff2, type: 2}
 --- !u!1 &8297301837283052099
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421879509170246774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,8 +738,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8297301837283052099}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.2468, z: -0.0485}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -754,4 +755,4 @@ Transform:
   - {fileID: 4453332254418236772}
   m_Father: {fileID: 5510554815871287787}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

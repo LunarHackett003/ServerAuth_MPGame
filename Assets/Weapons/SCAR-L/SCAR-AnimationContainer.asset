@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c521d81f8b7ca8c40aa2d3c5ecea7473, type: 3}
+  m_Name: SCAR-AnimationContainer
+  m_EditorClassIdentifier: 
+  overrideTargets:
+  - newClip: {fileID: 7400000, guid: 5ed925ace063a5e42b1048ac161d2608, type: 2}
+    overrideName: def_equip
+  - newClip: {fileID: 7400000, guid: 959207ff545b49842b9d50875e8e8f76, type: 2}
+    overrideName: def_fire_hip
+  - newClip: {fileID: 7400000, guid: 92f2d12594629604c887203b966ce152, type: 2}
+    overrideName: def_idle_hip
+  - newClip: {fileID: 7400000, guid: 6758a209df53c0946afcd74571186f20, type: 2}
+    overrideName: def_unequip

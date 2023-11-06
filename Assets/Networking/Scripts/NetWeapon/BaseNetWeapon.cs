@@ -5,5 +5,6 @@ using UnityEngine;
 
 public class BaseNetWeapon : NetworkBehaviour
 {
-    
+    public Transform magazine;
+    public WeaponAnimationContainer animSet;
 }
