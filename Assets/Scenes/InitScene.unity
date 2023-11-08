@@ -1035,9 +1035,16 @@ MonoBehaviour:
     THIS
     LIST WILL BE EXPANDED THROUGHOUT DEVELOPMENT
 
-    > Server-Authoritative simulation
-    - The client does not and will never be allowed to compute anything itself aside
-    from some non-synchronised objects, such as ragdolls.
+    > Loadout Selection - upon
+    joining a game, the player is able to select their loadout and continue to spawn.
+
+    >
+    Procedural weapon sway/bobbing.
+
+
+
+    MULTIPLAYER CURRENTLY IS UNTESTED AND
+    LIKELY DOES NOT WORK!
 
 '
   m_isRightToLeft: 0
