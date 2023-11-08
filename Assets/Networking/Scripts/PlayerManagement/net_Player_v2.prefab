@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 4357490525654730327}
   - component: {fileID: 5029802690641166805}
   - component: {fileID: 1873425663702260143}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: net_Player_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1383,7 +1383,7 @@ Transform:
   m_Children:
   - {fileID: 9026723611400985529}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3072311066370275462
 MonoBehaviour:
@@ -1579,10 +1579,10 @@ MonoBehaviour:
   aimSwayTarget: {x: 0, y: 0, z: 0}
   aimTranslationAmount: {x: 0, y: 0, z: 0}
   aimTranslationTarget: {x: 0, y: 0, z: 0}
-  aimSwayVelocity: {x: 0, y: 0, z: 0}
+  aimSwayVelocity: {x: 0.4, y: -0.8, z: 1}
   aimTranslateVelocity: {x: 0, y: 0, z: 0}
-  aimSwaySpeed: {x: 0, y: 0, z: 0}
-  aimTranslateSpeed: {x: 0, y: 0, z: 0}
+  aimSwaySpeed: {x: 0.4, y: -0.8, z: 0}
+  aimTranslateSpeed: {x: 0.01, y: 0.01, z: 0}
   aimTarg: {x: 0, y: 0}
   aimDelta: {x: 0, y: 0}
   wp:
@@ -1680,12 +1680,12 @@ MonoBehaviour:
   currentBob: 0
   bobRight: 0
   jumpVelocity: 5
-  cameraYFollow: 0
+  cameraYFollow: 0.01
   cameraYVelocity: 0
   cameraYTarget: 0
   cameraYAmount: 0
-  cameraYSmoothTime: 0
-  cameraYClamp: {x: 0, y: 0}
+  cameraYSmoothTime: 0.2
+  cameraYClamp: {x: -0.3, y: 0.1}
   aimSwaySmoothTime: 0.2
   aimTranslateSmoothTime: 0.2
   vmCam: {fileID: 6784729802486203537}
@@ -1693,6 +1693,16 @@ MonoBehaviour:
   sliding: 0
   onRappel: 0
   onGrapple: 0
+  rappelDirection: {x: 0, y: 0, z: 0}
+  rappelSpeed: 0
+  rappelDetachForce: 0
+  collideImpulseMultipler: -1
+  interactPoint: {fileID: 522235703505863768}
+  interactDistance: 1.5
+  interactableLayermask:
+    serializedVersion: 2
+    m_Bits: 256
+  currentZipline: {fileID: 0}
 --- !u!1 &3455848155110527850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,7 +3258,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 262199
+    m_Bits: 262455
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

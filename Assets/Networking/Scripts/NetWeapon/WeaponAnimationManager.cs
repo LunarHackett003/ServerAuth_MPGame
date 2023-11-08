@@ -47,4 +47,19 @@ public class WeaponAnimationManager : NetworkBehaviour
         }
         aoc.ApplyOverrides(clipOverrides);
     }
+    public IEnumerator TriggerAnimation(float time, string triggerName)
+    {
+        WaitForSeconds wfs = new(time);
+        animator_WM.SetTrigger(triggerName);
+        if(IsOwner)
+            animator_VM.SetTrigger(triggerName);
+
+        yield return wfs;
+
+        animator_WM.ResetTrigger(triggerName);
+        if (IsOwner)
+            animator_VM.ResetTrigger(triggerName);
+
+        yield return new WaitForFixedUpdate();
+    }
 }

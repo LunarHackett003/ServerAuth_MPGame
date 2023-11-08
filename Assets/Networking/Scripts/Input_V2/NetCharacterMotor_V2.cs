@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -17,7 +18,7 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
     [SerializeField] float groundCheckDistance, groundCheckRadius;
     [SerializeField] float walkableGroundDotThreshold;
     [SerializeField] LayerMask groundCheckMask;
-    
+
 
     [SerializeField] Transform yawTransform, pitchTransform;
     [SerializeField] float lookSpeed;
@@ -66,7 +67,16 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
     [SerializeField] bool onRappel, onGrapple;
     bool jumped;
     Vector2 lookInputCached, moveInputCached;
+    [SerializeField] Vector3 rappelDirection;
+    [SerializeField] float rappelSpeed;
+    public float rappelDetachForce;
+
+    [SerializeField] float collideImpulseMultipler;
     (bool jump, bool fire, bool sprint, bool crouch) boolInputs;
+    [SerializeField] Transform interactPoint;
+    [SerializeField] float interactDistance;
+    [SerializeField] LayerMask interactableLayermask;
+    [SerializeField] Zipline currentZipline;
     private void Start()
     {
         currentBob = 0.5f;
@@ -87,7 +97,7 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
 
 
         grounded = GroundCheck();
-        rb.isKinematic = !isAlive.Value;
+        rb.isKinematic = !isAlive.Value && (moveState != MoveState.rappeling);
         if (rootObject.gameObject.activeSelf != isAlive.Value)
         {
             ChangePlayerAliveStateServerRPC(isAlive.Value);
@@ -112,21 +122,7 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
 
             if (moveState == MoveState.grounded)
             {
-                rb.drag = groundedDrag;
-                if (rb && input)
-                {
-                    Vector2 clampedInput = new Vector2(Mathf.Clamp(moveInputCached.x, -1, 1), Mathf.Clamp(moveInputCached.y, -1, 1));
-                    Vector3 force = yawTransform.rotation * new Vector3(clampedInput.x, 0, clampedInput.y) * moveForce;
-                    Vector3 projectedMoveForce = Vector3.ProjectOnPlane(force, groundNormal);
-                    rb.AddForce(projectedMoveForce);
-
-
-                    if (boolInputs.jump && !jumped)
-                    {
-                        rb.AddForce(jumpVelocity * Vector3.up, ForceMode.VelocityChange);
-                        jumped = true;
-                    }
-                }
+                Movement();
             }
             else
             {
@@ -135,6 +131,11 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
             }
             if (boolInputs.jump)
                 jumped = false;
+
+            if(moveState == MoveState.rappeling)
+            {
+                RappelMovement();
+            }
         }
         else
         {
@@ -190,6 +191,28 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
         vmCam.transform.localPosition = viewPosComp;
 
     }
+    void Movement()
+    {
+        rb.drag = groundedDrag;
+        if (rb && input)
+        {
+            Vector2 clampedInput = new Vector2(Mathf.Clamp(moveInputCached.x, -1, 1), Mathf.Clamp(moveInputCached.y, -1, 1));
+            Vector3 force = yawTransform.rotation * new Vector3(clampedInput.x, 0, clampedInput.y) * moveForce;
+            Vector3 projectedMoveForce = Vector3.ProjectOnPlane(force, groundNormal);
+            rb.AddForce(projectedMoveForce);
+
+
+            if (boolInputs.jump && !jumped)
+            {
+                rb.AddForce(jumpVelocity * Vector3.up, ForceMode.VelocityChange);
+                jumped = true;
+            }
+        }
+    }
+    void RappelMovement()
+    {
+        rb.velocity = rappelDirection * rappelSpeed;
+    }
 
     [ServerRpc]
     private void ChangePlayerAliveStateServerRPC(bool state)
@@ -239,4 +262,47 @@ public class NetCharacterMotor_V2 : NetworkBehaviour
             bobRight = true;
         }
     }
+
+    void CheckZipline()
+    {
+        Ray r = new()
+        {
+            direction = interactPoint.forward,
+            origin = interactPoint.position
+        };
+        if (Physics.Raycast(r, out RaycastHit info, interactDistance, interactableLayermask, QueryTriggerInteraction.Collide))
+        {
+            if (info.collider.GetComponentInParent<Zipline>())
+            {
+                var zip = info.collider.GetComponentInParent<Zipline>();
+                var zipDir = zip.GetZiplineVector(r.direction);
+                rappelDirection = zipDir.rappelDirection;
+                rappelSpeed = zipDir.rappelSpeed;
+                AttachToZipline();
+                currentZipline = zip;
+            }
+        }
+    }
+
+    public void AttachToZipline()
+    {
+        onRappel = true;
+    }
+    public void DetachZipline()
+    {
+        onRappel = false;
+        rb.isKinematic = false;
+        currentZipline = null;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(onRappel)
+        DetachZipline();
+    }
+    public void Interact()
+    {
+        Debug.DrawRay(interactPoint.position, interactPoint.forward * interactDistance);
+        CheckZipline();
+    }
+
 }
